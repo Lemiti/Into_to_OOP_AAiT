@@ -2,21 +2,26 @@ import java.util.Scanner;
 
 public class Sorting {
 	static void sortArray(double[] ar) {
-		for (int i=0; i < ar.length-1; i++) {
-			
-			if (ar[i] > ar[i+1]) {
-				//swap
-				double temp = ar[i];
-				ar[i] = ar[i+1];
-				ar[i+1] = temp;
+		for (int i=0; i < ar.length; i++) {
+			for (int j=0;j < ar.length-1; j ++) {
+				if (ar[j] > ar[j+1]) {
+					//swap
+					double temp = ar[j];
+					ar[j] = ar[j+1];
+					ar[j+1] = temp;
+			}
 			}
 		}
 		
 		System.out.print("{");
 		for (int i=0; i< ar.length; i++) {
+			if (i!=ar.length-1) {
 			System.out.print(ar[i] + ", ");
+			} else {
+				System.out.print(ar[i]);
+			}
 		}
-		System.out.print("}");
+		System.out.print("}\n");
 		
 	}
 
@@ -36,6 +41,6 @@ public class Sorting {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please choose your array length.\n>>");
 		int arrLen = input.nextInt();
-		System.out.println(readArray(arrLen));
+		readArray(arrLen);
 	}
 }
